@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Air/code Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar glass led-strip">
+      <div>
+        <h1>Air/code Lab</h1>
+        <p>Studio modulaire en temps réel • HTML / CSS / JS exportables</p>
+      </div>
+      <div class="top-actions">
+        <button id="themeBtn">Changer le fond visuel</button>
+        <button id="toggleGridBtn">Afficher/Masquer grille</button>
+        <button id="exportBtn" class="primary">Exporter le projet</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside id="leftInspector" class="panel glass draggable resizable" aria-label="Inspecteur">
+        <div class="panel-head drag-handle">
+          <h2>Inspecteur & code source</h2>
+          <button class="small" data-collapse="leftInspector">Réduire</button>
+        </div>
+
+        <section class="family-tools">
+          <h3>Familles d'outils (60+)</h3>
+          <div id="toolFamilies" class="tool-families"></div>
+        </section>
+
+        <section>
+          <h3>Élément sélectionné</h3>
+          <div id="emptyState">Cliquez un élément pour éditer son style.</div>
+          <form id="styleForm" class="hidden"></form>
+        </section>
+
+        <section>
+          <h3>Inspecteur de code (éditable)</h3>
+          <label>HTML</label>
+          <textarea id="htmlCode" spellcheck="false"></textarea>
+          <label>CSS</label>
+          <textarea id="cssCode" spellcheck="false"></textarea>
+          <label>JS</label>
+          <textarea id="jsCode" spellcheck="false"></textarea>
+          <button id="applyCodeBtn" class="small">Appliquer le code</button>
+        </section>
+      </aside>
+
+      <section class="workbench-wrap">
+        <div id="workbenchInfo" class="info-box glass">
+          Double-cliquez un texte pour l'éditer. Glissez/déposez les objets. Les alignements apparaissent automatiquement.
+        </div>
+        <div id="workbench" class="workbench grid-on" aria-label="Zone de travail"></div>
+      </section>
+
+      <aside id="rightActions" class="panel glass draggable resizable" aria-label="Actions">
+        <div class="panel-head drag-handle">
+          <h2>Ajouts rapides</h2>
+          <button class="small" data-collapse="rightActions">Réduire</button>
+        </div>
+        <div class="actions-grid">
+          <button data-add="button">Ajouter bouton</button>
+          <button data-add="text">Ajouter texte</button>
+          <button data-add="image">Ajouter image</button>
+          <button data-add="video">Ajouter vidéo</button>
+          <button data-add="post">Ajouter post-it</button>
+          <button data-add="container">Ajouter conteneur</button>
+        </div>
+
+        <section>
+          <h3>Aide dynamique</h3>
+          <div id="helperText" class="helper-text">
+            Ici vous verrez l'impact de chaque réglage : “si vous changez ça, cela fera ça”.
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <template id="postTemplate">
+      <article class="post-it editable">Nouveau post-it : double-cliquez pour écrire.</article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
